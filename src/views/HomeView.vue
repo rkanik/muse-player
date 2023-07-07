@@ -2,12 +2,14 @@
 import MusePlayer from '@/components/MusePlayer.vue'
 import { reactive } from 'vue'
 
-const videos = ['y8zH87z', 'DjJZiTn']
+const videos = ['y8zH87z', 'DjJZiTn', 'hRkdqPR', 'XmWryKL']
 
 const videoOptions = reactive({
-  video: videos[0],
+  video: 'XmWryKL',
   loop: true,
-  width: 768,
+  width: '100%',
+  height: '100%',
+  sizing: 'fill',
   autoplay: true
 })
 </script>
@@ -33,7 +35,10 @@ const videoOptions = reactive({
         </button>
       </div>
 
-      <MusePlayer :video-options="videoOptions" class="w-full mt-2 rounded overflow-hidden" />
+      <MusePlayer
+        :video-options="videoOptions"
+        class="mt-2 rounded overflow-hidden h-[432px] bg-black"
+      />
     </div>
   </main>
 </template>

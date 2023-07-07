@@ -14,7 +14,7 @@ const player = ref()
 watch(
   () => props.videoOptions.video,
   (video) => {
-    if (!player.value) return
+    if (!video || !player.value) return
     if (video === player.value.options.video) return
     player.value.setVideo(video)
   },
