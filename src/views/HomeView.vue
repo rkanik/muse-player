@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import MusePlayer from '@/components/MusePlayer.vue'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 const videos = ['y8zH87z', 'DjJZiTn', 'hRkdqPR', 'XmWryKL']
 
+const player = ref()
 const videoOptions = reactive({
   video: 'XmWryKL',
   loop: true,
@@ -12,6 +13,14 @@ const videoOptions = reactive({
   sizing: 'fill',
   autoplay: true
 })
+
+const onClickPlay = () => {
+  player.value.play()
+}
+
+const onClickPause = () => {
+  player.value.pause()
+}
 </script>
 
 <template>
@@ -35,8 +44,24 @@ const videoOptions = reactive({
         </button>
       </div>
 
+      <div class="flex space-x-2 mt-2">
+        <button
+          @click="onClickPlay"
+          class="bg-gray-700 px-4 py-1 rounded text-white hover:bg-gray-900"
+        >
+          Play
+        </button>
+        <button
+          @click="onClickPause"
+          class="bg-gray-700 px-4 py-1 rounded text-white hover:bg-gray-900"
+        >
+          Pause
+        </button>
+      </div>
+
       <MusePlayer
         :video-options="videoOptions"
+        ref="player"
         class="mt-2 rounded overflow-hidden h-[432px] bg-black"
       />
     </div>

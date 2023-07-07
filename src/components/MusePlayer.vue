@@ -30,6 +30,15 @@ useScriptTag('https://muse.ai/static/js/embed-player.min.js', () => {
     ...props.videoOptions
   })
 })
+
+defineExpose({
+  play() {
+    player.value?.play()
+  },
+  pause() {
+    player.value?.pause()
+  }
+})
 </script>
 
 <template>
