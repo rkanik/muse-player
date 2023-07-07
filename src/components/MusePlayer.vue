@@ -25,7 +25,7 @@ watch(
 )
 
 useScriptTag('https://muse.ai/static/js/embed-player.min.js', () => {
-  player.value = window.MusePlayer({
+  player.value = (window as any).MusePlayer({
     container: '#muse-player',
     ...props.videoOptions
   })
