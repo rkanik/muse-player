@@ -18,8 +18,12 @@ const onClickPlay = () => {
   player.value.play()
 }
 
-const onClickPause = () => {
+const onClickStop = () => {
   player.value.pause()
+}
+
+const onChangeSource = () => {
+  player.value.setVideo('y8zH87z')
 }
 </script>
 
@@ -52,10 +56,17 @@ const onClickPause = () => {
           Play
         </button>
         <button
-          @click="onClickPause"
+          @click="onClickStop"
           class="bg-gray-700 px-4 py-1 rounded text-white hover:bg-gray-900"
         >
-          Pause
+          Stop
+        </button>
+
+        <button
+          @click="onChangeSource"
+          class="bg-gray-700 px-4 py-1 rounded text-white hover:bg-gray-900"
+        >
+          Change Source
         </button>
       </div>
 

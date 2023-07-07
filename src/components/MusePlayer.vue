@@ -31,14 +31,18 @@ useScriptTag('https://muse.ai/static/js/embed-player.min.js', () => {
   })
 })
 
-defineExpose({
-  play() {
-    player.value?.play()
-  },
-  pause() {
-    player.value?.pause()
-  }
-})
+const events = ['play', 'pause', 'seek', 'on', 'off', 'setVideo', 'setSpeed', 'setVolume']
+
+defineExpose(
+  events.reduce((events, event) => {
+    return {
+      ...events,
+      [event]: (...args: any[]) => {
+        player.value?.[event](...args)
+      }
+    }
+  }, {} as any)
+)
 </script>
 
 <template>
